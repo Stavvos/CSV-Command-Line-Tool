@@ -13,7 +13,7 @@ class Records:
 	def __str__(self):
 		return '- name: {self.firstname} {self.lastname} \n  details: In division {self.division} from {self.date} performing {self.summary}'.format(self = self) 
 
-#A function that reads a CSV file, Assigns values to Records object attributes,
+#A function that reads a CSV file, assigns values to Records object attributes,
 #stores Records objects into an array, and returns the array filled with Records objects
 def CSV(array):
 	
@@ -33,6 +33,16 @@ def CSV(array):
 	#note that the 'with' keyword handles closing the CSV file
 	return array
 
+
+def sortArray(array):
+	array = sorted(array, key = lambda x: (x.division, -x.points))
+	return array 
+
+def display (array):
+	for i in range(len(array) - 1):
+		print (array[i])
+
 array = []
 array = CSV(array)
-print(array[0])
+array = sortArray(array)
+display(array)
