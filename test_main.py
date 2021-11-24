@@ -11,6 +11,7 @@ class Test_main_Functions(unittest.TestCase):
 		for i in range(len(test_array)):
 			self.assertIsInstance(test_array[i], Records)
 	
-	def test_sortArray(self): #A test to verify the array of objects is in the correct order
+#A test to verify the array of objects is in the correct order
+	def test_sortArray(self): 
 		expected_array = sorted(test_array, key = lambda x: (x.division, -x.points))
 		self.assertEqual(sortArray(test_array), expected_array) 
