@@ -17,32 +17,34 @@ class Records:
 #stores Records objects into an array, and returns the array filled with Records objects
 def CSV(array):
 	
-	with open ('F:/CSV_Tool/CSV.txt') as CSVfile:  #place file path of CSV.txt inbetween the parenthesis 
+	with open ('F:/CSV_Tool/CSV.txt') as CSVfile:  #Place file path of CSV.txt inbetween the parenthesis 
 		reader = csv.reader(CSVfile, delimiter=',') 
 			
 		line_count = 0 
 			
 		for row in reader: 
-			if line_count > 0:
+			if line_count > 0: 
 				array.append(Records(row[0],row[1],row[2],int(row[3]),int(row[4]),row[5])) 
 				
 			if line_count == 10:
 				break
 				
 			line_count =+ 1
-	#note that the 'with' keyword handles closing the CSV file
+	#Note that the 'with' keyword handles closing the CSV file
 	return array
 
-
+#A function that sorts a given array's objects to the required ordering.  
 def sortArray(array):
 	array = sorted(array, key = lambda x: (x.division, -x.points))
 	return array 
 
+#A function that displays the top 3 indexs within the given array. 
 def display (array):
-	for i in range(len(array) - 1):
+	for i in range(3):
 		print (array[i])
 
-array = []
-array = CSV(array)
-array = sortArray(array)
-display(array)
+array = [] #Create array
+array = CSV(array) #Populate array with objects
+array = sortArray(array) #Sort the array
+display(array) #Display top 3 objects of the array 
+
