@@ -6,7 +6,7 @@ from main import sortArray
 test_array = []
 
 #A test to verify the CSV function has added objects of the type Record into the array
-class Test_main_Functions(unittest.TestCase):	
+class test_main_functions(unittest.TestCase):	
 	def test_CSV(self): 
 		CSV(test_array)
 		for i in range(len(test_array)):
@@ -16,3 +16,4 @@ class Test_main_Functions(unittest.TestCase):
 	def test_sortArray(self): 
 		expected_array = sorted(test_array, key = lambda x: (x.division, -x.points))
 		self.assertEqual(sortArray(test_array), expected_array) 
+
