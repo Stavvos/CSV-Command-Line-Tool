@@ -11,6 +11,7 @@ class Record:
 		self.summary = summary
 	
 	#A function that formats the command line output of a Record object to the desired YAML formatting. 
+	#TODO: There's a YAML library for Python which might be better suited for printing data to the command line in a YAML format. 
 	def __str__(self):
 		return '- name: {self.firstname} {self.lastname} \n  details: In division {self.division} from {self.date} performing {self.summary}'.format(self = self) 
 
@@ -36,6 +37,8 @@ def CSV(array):
 
 #A function that sorts a given array's objects to the required ordering.  
 def sortArray(array):
+#TODO: It's possible there's a more optimised solution for the sortArray function.
+#However, for an array of 10 elements the in-built Python function sorted() is good enough. 
 	array = sorted(array, key = lambda x: (x.division, -x.points))
 	return array 
 
@@ -48,4 +51,7 @@ array = [] #Create array
 array = CSV(array) #Populate array with objects
 array = sortArray(array) #Sort the array
 display(array) #Display top 3 objects of the array 
+
+
+
 
